@@ -11,7 +11,7 @@
 #include <sys/time.h>
 #include <sys/stat.h>
 
-int main()
+int main(int argc, char** argv)
 {
  FILE *fp;
  char filename[256];
@@ -28,8 +28,8 @@ int main()
 
  // Prompt user to enter filename
   printf("Enter a filename :");
-  gets(filename);
-    
+//  gets(filename);
+ strcpy(filename, argv[1])
     // Open file in read-only mode
    fp = fopen(filename,"r");
   gettimeofday(&start,NULL);
