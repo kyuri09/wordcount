@@ -17,7 +17,7 @@ int main()
  char filename[256];
  char ch;
  int linecount, wordcount;
- long charcount:
+ long charcount;
  struct timeval start, end;
  double totaltime;
 
