@@ -29,7 +29,7 @@ int main(int argc, char** argv)
  // Prompt user to enter filename
   printf("Enter a filename :");
 //  gets(filename);
- strcpy(filename, argv[1])
+ strcpy(filename, argv[1]);
     // Open file in read-only mode
    fp = fopen(filename,"r");
   gettimeofday(&start,NULL);
