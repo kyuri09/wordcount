@@ -4,13 +4,18 @@
  *************************************************/
 
 #include <stdio.h>
+#include <string.h>
+#include <sys/time.h>
+#include <sys/stat.h>
 
 int main()
 {
  FILE *fp;
- char filename[100];
+ char filename[256];
  char ch;
  int linecount, wordcount, charcount;
+ struct timeval star, end;
+ double totaltime;
 
  // Initialize counter variables
  linecount = 0;
@@ -20,10 +25,10 @@ int main()
  // Prompt user to enter filename
   printf("Enter a filename :");
   gets(filename);
-  
+    
     // Open file in read-only mode
    fp = fopen(filename,"r");
-
+  gettimeofday(&start,NULL);
    // If file opened successfully, then write the string to file
    if ( fp )
    {
@@ -51,10 +56,12 @@ int main()
       {
          printf("Failed to open the file\n");
         }
-
+  gettimeofday(&end, NULL);
     printf("Lines : %d \n", linecount);
     printf("Words : %d \n", wordcount);
     printf("Characters : %d \n", charcount);
+    totaltime = (((end.tv_usec - start.tv_usec) / 1.0e6 + end.tv_sec - start.tv_sec) * 1000) / 1000;
+    printf("total time : %f sec\n",totaltime);
 
 getchar();
 return(0);
