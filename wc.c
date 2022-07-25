@@ -2,9 +2,12 @@
  * C program to count no of lines, words and 	 *
  * characters in a file.			 *
  *************************************************/
-
+#include <ctype.h>
+#include <search.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <malloc.h>
 #include <sys/time.h>
 #include <sys/stat.h>
 
@@ -14,7 +17,7 @@ int main()
  char filename[256];
  char ch;
  int linecount, wordcount, charcount;
- struct timeval star, end;
+ struct timeval start, end;
  double totaltime;
 
  // Initialize counter variables
